@@ -17,3 +17,5 @@ export { default as WebAppChrome } from './src/WebAppChrome'
 export { default as DesktopAppChrome } from './src/DesktopAppChrome'
 export { default as TextureWebApp } from './src/TextureWebApp'
 export { default as TextureDesktopApp } from './src/TextureDesktopApp'
+
+export { default as Reader } from './src/reader/components/Reader'

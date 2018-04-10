@@ -1,11 +1,11 @@
 import { Component } from 'substance'
 
-export default class BodyComponent extends Component {
+export default class BodyDisplayComponent extends Component {
 
   render($$) {
     const body = this.props.node
     let el = $$('div')
-      .addClass('sc-body')
+      .addClass('sc-body-display')
       .attr('data-id', body.id)
 
     // There can be multiple abstracts. We just take the first
@@ -19,6 +19,7 @@ export default class BodyComponent extends Component {
         disabled: this.props.disabled
       })
     }
+
     el.append(contentEl)
 
     // optional sig-block

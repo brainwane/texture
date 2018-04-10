@@ -184,9 +184,22 @@ b.task('build:app', () => {
 
 b.task('build:web', () => {
   b.copy('web/index.html', DIST)
+  b.copy('web/reader.html', DIST)
   b.js('./web/editor.js', {
     targets: [{
       dest: DIST+'editor.js',
+      format: 'umd',
+      moduleName: 'textureEditor',
+      globals: {
+        'substance': 'window.substance',
+        'substance-texture': 'window.texture'
+      }
+    }],
+    external: ['substance', 'substance-texture']
+  })
+  b.js('./web/reader.js', {
+    targets: [{
+      dest: DIST+'reader.js',
       format: 'umd',
       moduleName: 'textureEditor',
       globals: {
