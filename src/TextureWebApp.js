@@ -1,6 +1,7 @@
 import { HttpStorageClient, VfsStorageClient, InMemoryDarBuffer, parseKeyEvent } from 'substance'
 import WebAppChrome from './WebAppChrome'
 import TextureArchive from './TextureArchive'
+import RawStorageClient from './RawStorageClient'
 
 import {
   _renderTextureApp,
@@ -15,8 +16,11 @@ export default class TextureWebApp extends WebAppChrome {
 
   _loadArchive(archiveId, context) {
     let storage
-    if (this.props.storageType==='vfs') {
+    const storageType = this.props.storageType
+    if (storageType==='vfs') {
       storage = new VfsStorageClient(window.vfs, './data/')
+    } else if (storageType === 'raw') {
+      storage = new RawStorageClient(window.RAW_ARCHIVE)
     } else {
       storage = new HttpStorageClient(this.props.storageUrl)
     }

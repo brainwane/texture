@@ -184,6 +184,7 @@ b.task('build:app', () => {
 
 b.task('build:web', () => {
   b.copy('web/index.html', DIST)
+  b.copy('web/rawArchive.js', DIST)
   b.js('./web/editor.js', {
     targets: [{
       dest: DIST+'editor.js',
